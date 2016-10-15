@@ -121,10 +121,18 @@ def main():
     sun.mass = 1.98892 * 10**30
     sun.pencolor('yellow')
 
+    p10 = Body()
+    p10.name = 'Planeta 10'
+    p10.mass = 10**2
+    p10.py= 0.2*AU
+    p10.vx= 8000.0
+    p10.pencolor('green')
+
     earth = Body()
     earth.name = 'Earth'
     earth.mass = 5.9742 * 10**24
     earth.px = -1*AU
+    earth.vx = 5.783 * 1000
     earth.vy = 29.783 * 1000            # 29.783 km/sec
     earth.pencolor('blue')
 
@@ -137,7 +145,7 @@ def main():
     venus.vy = -35.02 * 1000
     venus.pencolor('red')
 
-    loop([sun, earth, venus])
+    loop([sun, earth, venus,p10])
 
 if __name__ == '__main__':
     main()
