@@ -2,6 +2,7 @@ import usb.core
 import usb.util
 import Queue
 
+from audio import AudioEvent
 class AudioEvent(object):
     def __init__(self, priority, description):
         self.priority = priority

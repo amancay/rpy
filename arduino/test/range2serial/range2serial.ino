@@ -90,6 +90,6 @@ void loop() {
  }
  
  //Delay 50ms before next reading.
- delay(50);
+ delay(500);
 }
 
