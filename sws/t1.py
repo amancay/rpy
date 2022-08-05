@@ -16,11 +16,16 @@ class SwsLine:
     self.su = su
     self.tups = []
     self.ntups = 0
+    self.tup_list = ''
   def add_tup(self, tu):
     self.tups.append(tu)
     self.ntups = len(self.tups)
-
-sws_lines = [];
+  def list_tups(self):
+    li = ''
+    for tu in self.tups:
+      li = li + ' ' + str(tu.tup)
+    return li
+sws_lines = []
 for i in range(0,sum(sws_set) + 1):
 	sws_lines.append(SwsLine(i))
 	
@@ -40,6 +45,23 @@ for li in sws_lines:
   for tu in li.tups:
     print(list(tu.tup))
   print('---')
+
+with open('/home/alejeng/test.html', 'w') as f:
+  f.write('<table>')
+  for li in sws_lines:
+    f.write('<tr><td>'+str(li.su)+'</td><td>'+str(li.list_tups())+'</td><td>'+str(li.ntups)+'</td></tr>')
+  f.write('</table>')
+
+import webbrowser
+new = 2 # open in a new tab, if possible
+
+# open a public URL, in this case, the webbrowser docs
+url = "http://docs.python.org/library/webbrowser.html"
+webbrowser.open(url,new=new)
+
+# open an HTML file on my own (Windows) computer
+url = "file:///home/alejeng/test.html"
+webbrowser.open(url,new=new)
 
 
 import matplotlib.pyplot as plt
